@@ -81,7 +81,7 @@ export function ContactSection() {
             </p>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-sm border border-primary/10 p-8 md:p-10">
+          <div className="bg-white dark:bg-zinc-900/50 rounded-2xl shadow-sm border border-primary/10 dark:border-primary/20 p-8 md:p-10">
             {submitStatus === 'success' ? (
               <div className="flex flex-col items-center justify-center text-center py-10">
                 <div className="h-16 w-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-6">

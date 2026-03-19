@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 import { Globe, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ThemeToggle } from '@/components/layout/ThemeToggle';
 
 export function Header() {
   const { language, setLanguage, t } = useLanguage();
@@ -32,7 +33,8 @@ export function Header() {
             {t.header.clients}
           </Link>
         </nav>
-        <div className="flex items-center gap-2 md:gap-4">
+        <div className="flex items-center gap-1 md:gap-3">
+          <ThemeToggle />
           <button 
             onClick={() => setLanguage(language === 'en' ? 'es' : 'en')}
             className="flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors p-2 rounded-md hover:bg-primary/5"

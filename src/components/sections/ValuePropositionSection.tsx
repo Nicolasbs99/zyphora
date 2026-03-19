@@ -11,12 +11,12 @@ export function ValuePropositionSection() {
   const { t } = useLanguage();
 
   return (
-    <section className="py-24 bg-zinc-50 border-y border-primary/5">
+    <section className="py-24 bg-zinc-50 dark:bg-zinc-900/40 border-y border-primary/5 dark:border-primary/10">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-6">
-              {t.values.title1} <span className="text-primary">{t.values.titleHighlight}</span>
+              {t.values.title1} <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary drop-shadow-sm">{t.values.titleHighlight}</span>
             </h2>
             <p className="text-lg text-foreground/70 mb-8 leading-relaxed">
               {t.values.description}
@@ -27,7 +27,7 @@ export function ValuePropositionSection() {
                 return (
                   <div key={index} className="flex flex-col gap-2">
                     <div className="flex items-center gap-3 mb-1">
-                      <div className="rounded-md bg-white p-2 shadow-sm border border-primary/10 text-primary">
+                      <div className="rounded-md bg-white dark:bg-zinc-900/50 p-2 shadow-sm border border-primary/10 dark:border-primary/20 text-primary">
                         <Icon className="h-5 w-5" />
                       </div>
                       <h4 className="font-semibold text-foreground">{value.title}</h4>
@@ -48,22 +48,22 @@ export function ValuePropositionSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 viewport={{ once: true }}
-                className="relative z-10 w-full rounded-2xl bg-white border border-primary/10 shadow-2xl overflow-hidden flex flex-col"
+                className="relative z-10 w-full rounded-2xl bg-white dark:bg-zinc-900 border border-primary/10 dark:border-primary/20 shadow-2xl overflow-hidden flex flex-col"
               >
                 {/* Window Header */}
-                <div className="h-10 bg-zinc-50 border-b border-primary/5 flex items-center px-4 gap-2">
+                <div className="h-10 bg-zinc-50 dark:bg-zinc-950 border-b border-primary/5 dark:border-primary/10 flex items-center px-4 gap-2">
                   <div className="flex gap-1.5">
                     <div className="w-2.5 h-2.5 rounded-full bg-red-400"></div>
                     <div className="w-2.5 h-2.5 rounded-full bg-amber-400"></div>
                     <div className="w-2.5 h-2.5 rounded-full bg-green-400"></div>
                   </div>
-                  <div className="mx-auto px-4 py-1 rounded-md bg-white border border-primary/5 text-[10px] font-medium text-foreground/50">
+                  <div className="mx-auto px-4 py-1 rounded-md bg-white dark:bg-zinc-900 border border-primary/5 dark:border-primary/10 text-[10px] font-medium text-foreground/50">
                     zyphora-engine-v2.config
                   </div>
                 </div>
                 
                 {/* Window Body */}
-                <div className="p-6 bg-white">
+                <div className="p-6 bg-white dark:bg-zinc-900">
                   <div className="flex items-center justify-between mb-6">
                     <div>
                       <h5 className="font-semibold text-foreground text-sm">System Overview</h5>
@@ -120,7 +120,7 @@ export function ValuePropositionSection() {
                 whileInView={{ opacity: 1, x: 0, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
                 viewport={{ once: true }}
-                className="absolute -right-4 top-1/4 z-20 bg-white p-3 rounded-xl shadow-xl border border-primary/10 flex items-center gap-3"
+                className="absolute -right-4 top-1/4 z-20 bg-white dark:bg-zinc-900 p-3 rounded-xl shadow-xl border border-primary/10 dark:border-primary/20 flex items-center gap-3"
               >
                 <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600">
                   <Zap className="w-4 h-4" />

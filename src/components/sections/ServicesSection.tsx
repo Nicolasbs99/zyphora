@@ -27,10 +27,13 @@ export function ServicesSection() {
             return (
               <div 
                 key={index} 
-                className="group relative flex flex-col justify-between rounded-2xl border border-primary/10 bg-white p-6 shadow-sm transition-all hover:shadow-md hover:border-primary/30"
+                className="group relative flex flex-col justify-between rounded-2xl border border-primary/10 dark:border-primary/20 bg-white dark:bg-zinc-900/50 p-6 shadow-sm transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1 hover:border-primary/40 overflow-hidden"
               >
+                {/* Accent Top Border Gradient */}
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-secondary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
                 <div>
-                  <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/5 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                  <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/5 text-primary group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-secondary group-hover:text-white transition-all duration-300 shadow-sm">
                     <Icon className="h-6 w-6" />
                   </div>
                   <h3 className="text-xl font-semibold mb-3 text-foreground">{service.title}</h3>

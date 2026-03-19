@@ -12,18 +12,13 @@ export function HeroSection() {
 
   return (
     <section className="relative overflow-hidden bg-background pt-32 pb-20 lg:pt-48 lg:pb-32">
-      {/* Abstract Background Image */}
-      <div className="absolute inset-0 z-0">
-        <Image 
-          src="/tech_hero_bg.png" 
-          alt="Technology Background" 
-          fill
-          priority
-          className="object-cover object-center opacity-30 dark:opacity-40" 
-        />
-        {/* Soft gradient overlay to blend the image seamlessly into the content */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/80 to-background z-10"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-transparent to-background/90 z-10"></div>
+      {/* Abstract Animated Mesh Gradient Background */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-[10%] left-[10%] w-[400px] h-[400px] md:w-[600px] md:h-[600px] rounded-full bg-primary/20 blur-[100px] mix-blend-multiply dark:mix-blend-screen animate-blob" />
+        <div className="absolute top-[20%] right-[10%] w-[400px] h-[400px] md:w-[600px] md:h-[600px] rounded-full bg-secondary/20 blur-[100px] mix-blend-multiply dark:mix-blend-screen animate-blob animation-delay-2000" />
+        <div className="absolute -bottom-[10%] left-[30%] w-[400px] h-[400px] md:w-[600px] md:h-[600px] rounded-full bg-accent/20 blur-[100px] mix-blend-multiply dark:mix-blend-screen animate-blob animation-delay-4000" />
+        {/* Soft grid overlay for a "tech" feel */}
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 dark:opacity-10 mix-blend-overlay"></div>
       </div>
       
       <div className="container mx-auto px-4 md:px-6 relative z-20">
@@ -44,7 +39,7 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground mb-6"
           >
-            {t.hero.title1} <span className="text-primary drop-shadow-sm">{t.hero.titleHighlight}</span>
+            {t.hero.title1} <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary drop-shadow-sm">{t.hero.titleHighlight}</span>
           </motion.h1>
           
           <motion.p 
@@ -64,28 +59,22 @@ export function HeroSection() {
           >
             <Link 
               href="#contact"
-              className="inline-flex h-12 md:h-14 items-center justify-center rounded-lg bg-primary px-8 text-base font-medium text-white transition-all hover:bg-primary/90 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary shadow-lg shadow-primary/25"
+              className="inline-flex h-12 md:h-14 items-center justify-center rounded-lg bg-gradient-to-r from-primary to-primary/80 px-8 text-base font-medium text-white transition-all hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary shadow-lg shadow-primary/25"
             >
               {t.hero.bookCall}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
             <Link 
-              href="https://wa.me/1234567890?text=Hi,%20I'm%20interested%20in%20Zyphora's%20services"
+              href={`https://wa.me/1234567890?text=${encodeURIComponent(t.whatsappMsg)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-12 md:h-14 items-center justify-center rounded-lg border-2 border-primary/20 bg-background/50 backdrop-blur-sm px-8 text-base font-medium text-foreground transition-colors hover:bg-primary/10 hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              className="inline-flex h-12 md:h-14 items-center justify-center rounded-lg border-2 border-primary/20 bg-background/50 backdrop-blur-sm px-8 text-base font-medium text-foreground transition-colors hover:bg-primary/5 hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
-              <MessageCircle className="mr-2 h-5 w-5 text-green-500" />
+              <MessageCircle className="mr-2 h-5 w-5 text-[#25D366]" />
               {t.hero.whatsapp}
             </Link>
           </motion.div>
         </div>
-      </div>
-      
-      {/* Abstract Animated Orbs behind the content but in front of the image base */}
-      <div className="absolute top-0 right-0 z-10 h-full w-full overflow-hidden opacity-50 pointer-events-none">
-        <div className="absolute -top-[20%] -right-[10%] h-[600px] w-[600px] rounded-full bg-primary/20 blur-[120px] mix-blend-screen" />
-        <div className="absolute top-[40%] -left-[10%] h-[500px] w-[500px] rounded-full bg-secondary/10 blur-[120px] mix-blend-screen" />
       </div>
     </section>
   );

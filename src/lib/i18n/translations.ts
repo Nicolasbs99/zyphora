@@ -1,5 +1,10 @@
 export const translations = {
   en: {
+    metadata: {
+      title: "Zyphora | High-End Tech & AI Solutions",
+      description: "We build custom software, implement AI solutions, and automate complex processes."
+    },
+    whatsappMsg: "Hi, I'm interested in Zyphora's services! Can we talk?",
     header: {
       services: "Services",
       process: "Process",
@@ -104,6 +109,11 @@ export const translations = {
     }
   },
   es: {
+    metadata: {
+      title: "Zyphora | Soluciones Tecnológicas Premium e IA",
+      description: "Creamos software a medida, implementamos soluciones de IA y automatizamos procesos para ayudar a su negocio."
+    },
+    whatsappMsg: "¡Hola! Estoy interesado en los servicios de Zyphora, ¿podemos hablar?",
     header: {
       services: "Servicios",
       process: "Proceso",

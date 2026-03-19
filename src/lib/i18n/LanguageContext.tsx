@@ -12,7 +12,7 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguage] = useState<Language>('en');
+  const [language, setLanguage] = useState<Language>('es');
 
   // Load language preference from local storage on mount
   useEffect(() => {
@@ -20,11 +20,18 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     if (saved === 'es' || saved === 'en') {
       // eslint-disable-next-line
       setLanguage(saved);
+      document.title = translations[saved].metadata.title;
+      document.documentElement.lang = saved;
     } else {
-      // Auto-detect browser language
-      if (typeof navigator !== 'undefined' && navigator.language.startsWith('es')) {
+      // Auto-detect browser language, default to es, switch to en if explicit
+      if (typeof navigator !== 'undefined' && navigator.language.startsWith('en')) {
         // eslint-disable-next-line
-        setLanguage('es');
+        setLanguage('en');
+        document.title = translations['en'].metadata.title;
+        document.documentElement.lang = 'en';
+      } else {
+        document.title = translations['es'].metadata.title;
+        document.documentElement.lang = 'es';
       }
     }
   }, []);
@@ -32,6 +39,8 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const handleSetLanguage = (lang: Language) => {
     setLanguage(lang);
     localStorage.setItem('zyphora_language', lang);
+    document.title = translations[lang].metadata.title;
+    document.documentElement.lang = lang;
   };
 
   return (
