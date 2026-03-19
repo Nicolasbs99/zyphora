@@ -1,0 +1,29 @@
+﻿
+> zyphora@0.1.0 lint
+> eslint
+
+
+C:\Users\nicob\.gemini\antigravity\scratch\zyphora\src\components\sections\TestimonialsSection.tsx
+  31:17  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  31:37  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\nicob\.gemini\antigravity\scratch\zyphora\src\lib\i18n\LanguageContext.tsx
+  21:7  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\nicob\.gemini\antigravity\scratch\zyphora\src\lib\i18n\LanguageContext.tsx:21:7
+  19 |     const saved = localStorage.getItem('zyphora_language') as Language;
+  20 |     if (saved === 'es' || saved === 'en') {
+> 21 |       setLanguage(saved);
+     |       ^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  22 |     } else {
+  23 |       // Auto-detect browser language
+  24 |       if (typeof navigator !== 'undefined' && navigator.language.startsWith('es')) {  react-hooks/set-state-in-effect
+
+Ô£û 3 problems (3 errors, 0 warnings)
+
